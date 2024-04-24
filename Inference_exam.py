@@ -21,7 +21,7 @@ session = ort.InferenceSession(w, providers=providers)
 
 tf.compat.disable_v2_behavior()
 with tf.compat.Session() as sess:
-    x = tf.compat.placeholder(shape=[None, 2], dtype=tf.float32)
+    x = tf.compat.placeholder(tf.float32, [2])
     x2 = tf.square(x)
     print(sess.run(x2, feed_dict={x: [2, 3]}))
     # [4. 9.]
